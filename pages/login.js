@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const login = () => {
@@ -8,6 +9,10 @@ const login = () => {
         <div>
           <Image width={100} height={40} className="mx-auto h-12 w-auto" src="/digiaccel.svg" alt="Digiaccel logo" />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Login to your account</h2>
+          <p class="mt-2 text-center text-sm text-gray-600">
+        Or
+        <Link href="/signup" class="font-medium text-indigo-600 hover:text-indigo-500"> Sign Up</Link>
+      </p>
         </div>
         <form className="mt-8 space-y-6" action="#" method="POST">
           <input type="hidden" name="remember" value="true" />
@@ -29,7 +34,7 @@ const login = () => {
             </div>
 
             <div className="text-sm">
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
+              <Link href={'/forgot'} className="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</Link>
             </div>
           </div>
 
