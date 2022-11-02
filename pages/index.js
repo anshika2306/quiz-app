@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
 
 
 export default function Home() {
@@ -14,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/digiaccel.ico" />
       </Head>
 
-      <Navbar />
+      
 
       <section className="text-gray-600 body-font">
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
@@ -35,7 +33,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer />
+      
     </div>
   )
 }
