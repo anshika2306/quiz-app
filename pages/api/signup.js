@@ -1,10 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import user from "../../models/user"
 import connectDb from "../../middleware/mongoose"
+var CryptoJS = require("crypto-js");
 
 const handler = async (req, res) => {
     if (req.method == 'POST') {
-        let u = new user(req.body)
+        const {name, email} = req.body
+        let u = new user({name,email, password:CryptoJS.AES.encrypt(req.body.password, "secret123").toString()})
         await u.save()
         res.status(200).json({ success: "success" })
     }
