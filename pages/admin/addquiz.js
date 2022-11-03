@@ -12,12 +12,16 @@ const AddQuiz = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const data = { category,title,description }
-
+    const data = { category, title, description }
+    const access_token = localStorage.getItem('token');
+    if (access_token == null) {
+      router.push('http://localhost:3000/login');
+    }
     let res = await fetch('http://localhost:3000/api/addquiz', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'token': access_token
       },
       body: JSON.stringify([data]),
     })
@@ -66,7 +70,7 @@ const AddQuiz = () => {
       setDescription(e.target.value)
     }
   }
- 
+
 
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -90,10 +94,10 @@ const AddQuiz = () => {
         <form onSubmit={handleSubmit} className="mt-8 space-y-6" method="POST">
           <div id='quizdata' className="-space-y-px rounded-md shadow-sm">
             <div>
-            <label htmlFor="title" className="sr-only">Email address</label>
-              <input value={title}  onChange={handleChange} id="title" name="title" type="text" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Quiz Title" />
-              <input value={category}  onChange={handleChange} id="category" name="category" type="text" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Quiz Category" />
-              <input value={description}  onChange={handleChange} id="description" name="description" type="text" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Quiz Description" />
+              <label htmlFor="title" className="sr-only">Email address</label>
+              <input value={title} onChange={handleChange} id="title" name="title" type="text" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Quiz Title" />
+              <input value={category} onChange={handleChange} id="category" name="category" type="text" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Quiz Category" />
+              <input value={description} onChange={handleChange} id="description" name="description" type="text" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Quiz Description" />
             </div>
           </div>
           <div>

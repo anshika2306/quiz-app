@@ -3,6 +3,9 @@ var jwt = require("jsonwebtoken");
 import user from "../models/user";
 
 export const authenticateAndConnectDb = handler => async(req, res) => {
+    if(!mongoose.connections[0].readyState){
+        await mongoose.connect(process.env.MONGO_URI)
+    }
     if(req.headers.token == null || req.headers.token == undefined){
         return res.status(401).send({
             error: "User not found"
@@ -13,10 +16,28 @@ export const authenticateAndConnectDb = handler => async(req, res) => {
             email: result.email
         })
     }
-    if(mongoose.connections[0].readyState){
-        return handler(req,res)
+    return handler(req,res);
+}
+export const adminAuthandConnectDb = handler => async(req, res) => {
+    if(!mongoose.connections[0].readyState){
+        await mongoose.connect(process.env.MONGO_URI)
     }
-    await mongoose.connect(process.env.MONGO_URI)
+    if(req.headers.token == null || req.headers.token == undefined){
+        return res.status(401).send({
+            error: "User not found"
+        })
+    }else{
+        var result = await jwt.verify(req.headers.token, 'jwtsecret')
+        let user_ = await user.findOne({
+            email: result.email
+        })
+        if(!user_.admin){
+            return res.status(401).send({
+                error: "User not admin"
+            })
+        }
+        req.user = user_;
+    }
     return handler(req,res);
 }
 

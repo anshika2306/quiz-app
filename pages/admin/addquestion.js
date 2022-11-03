@@ -25,11 +25,15 @@ const AddQuestion = () => {
       correctOptions: solution,
       difficultyLevel
      }
-
+     const access_token = localStorage.getItem('token');
+        if (access_token == null) {
+            router.push('http://localhost:3000/login');
+        }
     let res = await fetch('http://localhost:3000/api/addquestions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'token': access_token
       },
       body: JSON.stringify([data]),
     })
