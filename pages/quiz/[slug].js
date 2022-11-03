@@ -18,7 +18,7 @@ const Post = ({ slug }) => {
             }
         });
         questionDetails = await questionDetails.json()
-        console.log('hui', questionDetails)
+        
         setData(questionDetails.randomQuestion);
     };
     useEffect(() => {
@@ -43,7 +43,7 @@ const Post = ({ slug }) => {
             })
         });
         submissionResult = await submissionResult.json();
-        console.log(submissionResult)
+        
         let radio = document.getElementsByClassName('radio-button-class');
         for (let i = 0; i < radio.length; i++) {
             radio[i].disabled = true;
@@ -57,6 +57,9 @@ const Post = ({ slug }) => {
                 questionParts[i].setAttribute('hidden', true);
                 document.getElementById('next-button').value = 'Retry'
             }
+            setTimeout(() => {
+                router.push('http://localhost:3000/results')
+              }, 1500);
         }
         else if(submissionResult.lost){
             document.getElementById('lost-alert').removeAttribute('hidden')
@@ -65,6 +68,9 @@ const Post = ({ slug }) => {
                 questionParts[i].setAttribute('hidden', true);
                 document.getElementById('next-button').value = 'Retry'
             }
+            setTimeout(() => {
+                router.push('http://localhost:3000/results')
+              }, 1500);
         }
         else if (submissionResult.result) {
             document.getElementById('success-alert').removeAttribute('hidden')
@@ -97,6 +103,7 @@ const Post = ({ slug }) => {
             radio[i].disabled = false;
         }
     }
+    
     const router = useRouter()
     if (data) {
         return <>

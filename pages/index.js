@@ -22,12 +22,10 @@ export default function Home() {
             <p className="mb-8 leading-relaxed">Being a student is easy. Learning requires actual work. -  William Crawford
             </p>
             <div className="flex justify-center">
-              <Link href={'/signup'}>
-              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">SignUp</button>
+              <Link href={'/quizzes'}>
+              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Browse Quizzes</button>
               </Link>
-              <Link href={'/login'}>
-              <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Login</button>
-              </Link>
+              
             </div>
           </div>
         </div>

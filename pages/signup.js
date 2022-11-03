@@ -48,6 +48,9 @@ const Signup = () => {
       progress: undefined,
       theme: "light",
       });
+      setTimeout(() => {
+        router.push('http://localhost:3000/login')
+      }, 1000);
   }
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

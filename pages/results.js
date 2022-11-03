@@ -47,18 +47,18 @@ const Post = () => {
                                         <div className="h-full flex flex-col items-center text-center">
                                             <div className="w-full">
                                                 {value.finished && value.result ?
-                                                    <h2 className="title-font font-bold text-lg text-green-600">Win</h2> : <></>
+                                                    <h2 className="title-font font-bold text-lg text-green-600">You did Great!</h2> : <></>
                                                 }
                                                 {value.finished && !value.result ?
-                                                    <h2 className="title-font font-bold text-lg text-red-600">Lost</h2> : <></>
+                                                    <h2 className="title-font font-bold text-lg text-red-600">Need More Practice</h2> : <></>
                                                 }
                                                 {!value.finished ?
-                                                    <h2 className="title-font font-bold text-lg text-gray-600">In Progress</h2> : <></>
+                                                    <h2 className="title-font font-bold text-lg text-gray-600">Lets Resume</h2> : <></>
                                                 }
 
                                                 <h3 className="text-gray-500 mb-3">{value.quiz_id}</h3>
                                                 <h3 className="text-gray-500 mb-3">Score: {value.score}</h3>
-                                                <h3 className="text-gray-500 mb-3">Date Finished: {getDateString(value.updatedAt)}</h3>
+                                                <h3 className="text-gray-500 mb-3">Date: {getDateString(value.updatedAt)}</h3>
                                             </div>
                                         </div>
                                     </div>

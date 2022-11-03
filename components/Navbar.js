@@ -13,8 +13,8 @@ const Navbar = ({ user, logout }) => {
             <div className='logo mx-5'>
                 <Link href={'/'}><Image src="/digiaccel.svg" alt="logo" width={100} height={30} /></Link>
             </div>
-            <div className='quizzes flex items-center space-x-10 font-bold md:text-md'>
-                <Link href={'/quizzes'}>Browse Quizzes</Link>
+            <div className='m-2 flex items-center space-x-10 font-bold md:text-xl'>
+                <h1>Digiaccel Quiz App</h1>
             </div>
             <div className='login cursor-pointer absolute right-0 top-4 mx-5'>
                 {user.value && <MdAccountCircle onClick={toggleDropdown} className='text-xl md:text-2xl flex' />}
@@ -27,7 +27,7 @@ const Navbar = ({ user, logout }) => {
                     <Link href={'/'}><li className='py-1 text-sm hover:text-white'>
                         My Profile
                     </li></Link>
-                    <Link href={'/'}><li className='py-1 text-sm hover:text-white'>
+                    <Link href={'/results'}><li className='py-1 text-sm hover:text-white'>
                         My Progress
                     </li></Link>
                     <a onClick={logout}><li className='cursor-pointer py-1 text-sm hover:text-white'>

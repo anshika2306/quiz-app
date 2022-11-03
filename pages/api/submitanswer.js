@@ -79,6 +79,7 @@ const handler = async (req, res) => {
             return res.status(200).send(result)
         }
     }
+    
 
     else {
         res.status(400).json({ error: "This method is not allowed" })

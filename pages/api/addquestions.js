@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import question from "../../models/question"
-import {adminAuth, authenticateAndConnectDb, connectDb} from "../../middleware/mongoose"
+import {adminAuth, adminAuthandConnectDb, authenticateAndConnectDb, connectDb} from "../../middleware/mongoose"
 
 const handler = async (req, res) => {
     if (req.method == 'POST') {
@@ -28,4 +28,4 @@ const handler = async (req, res) => {
 
 }
 
-export default authenticateAndConnectDb(handler);
+export default adminAuthandConnectDb(handler);
