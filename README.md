@@ -7,10 +7,10 @@ Description:
 
 > a. Install Dependencies
  Install Nodejs and yarn
-   ```bash
-    npm install
-    npm install --global yarn
-    ```
+```
+npm install
+npm install --global yarn
+```
  MongoDb is attached via MongoDbAtlas
 
 > b. Run 
