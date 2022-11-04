@@ -27,9 +27,9 @@ const AddQuestion = () => {
      }
      const access_token = localStorage.getItem('token');
         if (access_token == null) {
-            router.push(`http://${window.location.host}/login`);
+            router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
         }
-    let res = await fetch(`http://${window.location.host}/api/addquestions`, {
+    let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/addquestions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

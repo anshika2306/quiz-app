@@ -9,10 +9,10 @@ const Post = ({ slug }) => {
     const getData = async () => {
         const access_token = localStorage.getItem('token');
         if (access_token == null) {
-            router.push(`http://${window.location.host}/login`);
+            router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
         }
         console.log(access_token);
-        let questionDetails = await fetch(`http://${window.location.host}/api/getquestions?category=${slug}`, {
+        let questionDetails = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getquestions?category=${slug}`, {
             headers: {
                 'token': access_token
             }
@@ -32,7 +32,7 @@ const Post = ({ slug }) => {
         const answer = selectedRadio;
         // setRadio(null);
         console.log('answer', answer)
-        let submissionResult = await fetch(`http://${window.location.host}/api/submitanswer`, {
+        let submissionResult = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/submitanswer`, {
             method: 'POST',
             headers: {
                 'token': access_token
@@ -58,7 +58,7 @@ const Post = ({ slug }) => {
                 document.getElementById('next-button').value = 'Retry'
             }
             setTimeout(() => {
-                router.push(`http://${window.location.host}/results`)
+                router.push(`${process.env.NEXT_PUBLIC_HOST}/results`)
               }, 1500);
         }
         else if(submissionResult.lost){
@@ -69,7 +69,7 @@ const Post = ({ slug }) => {
                 document.getElementById('next-button').value = 'Retry'
             }
             setTimeout(() => {
-                router.push(`http://${window.location.host}/results`)
+                router.push(`${process.env.NEXT_PUBLIC_HOST}/results`)
               }, 1500);
         }
         else if (submissionResult.result) {

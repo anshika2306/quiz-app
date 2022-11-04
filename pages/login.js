@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault()
     const data = { email, password }
 
-    let res = await fetch(`http://${window.location.host}/api/login`, {
+    let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const Login = () => {
         theme: "light",
       });
       setTimeout(() => {
-        router.push(`http://${window.location.host}/quizzes`)
+        router.push(`${process.env.NEXT_PUBLIC_HOST}/quizzes`)
       }, 1000);
     }
     else {
