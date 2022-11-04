@@ -9,10 +9,10 @@ const Post = ({ slug }) => {
     const getData = async () => {
         const access_token = localStorage.getItem('token');
         if (access_token == null) {
-            router.push('http://localhost:3000/login');
+            router.push(`http://${window.location.host}/login`);
         }
         console.log(access_token);
-        let questionDetails = await fetch(`http://localhost:3000/api/getquestions?category=${slug}`, {
+        let questionDetails = await fetch(`http://${window.location.host}/api/getquestions?category=${slug}`, {
             headers: {
                 'token': access_token
             }
@@ -32,7 +32,7 @@ const Post = ({ slug }) => {
         const answer = selectedRadio;
         // setRadio(null);
         console.log('answer', answer)
-        let submissionResult = await fetch(`http://localhost:3000/api/submitanswer`, {
+        let submissionResult = await fetch(`http://${window.location.host}/api/submitanswer`, {
             method: 'POST',
             headers: {
                 'token': access_token
@@ -58,7 +58,7 @@ const Post = ({ slug }) => {
                 document.getElementById('next-button').value = 'Retry'
             }
             setTimeout(() => {
-                router.push('http://localhost:3000/results')
+                router.push(`http://${window.location.host}/results`)
               }, 1500);
         }
         else if(submissionResult.lost){
@@ -69,7 +69,7 @@ const Post = ({ slug }) => {
                 document.getElementById('next-button').value = 'Retry'
             }
             setTimeout(() => {
-                router.push('http://localhost:3000/results')
+                router.push(`http://${window.location.host}/results`)
               }, 1500);
         }
         else if (submissionResult.result) {

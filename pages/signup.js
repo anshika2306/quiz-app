@@ -28,7 +28,7 @@ const Signup = () => {
     e.preventDefault()
     const data = { name, email, password }
 
-    let res = await fetch('http://localhost:3000/api/signup', {
+    let res = await fetch(`http://${window.location.host}/api/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Signup = () => {
       theme: "light",
       });
       setTimeout(() => {
-        router.push('http://localhost:3000/login')
+        router.push(`http://${window.location.host}/login`)
       }, 1000);
   }
   return (

@@ -8,9 +8,9 @@ const Post = () => {
         const access_token = localStorage.getItem('token');
         
         if (access_token == null) {
-            router.push('http://localhost:3000/login');
+            router.push(`http://${window.location.host}/login`);
         }
-        let results = await fetch(`http://localhost:3000/api/getquizresults`, {
+        let results = await fetch(`http://${window.location.host}/api/getquizresults`, {
             headers: {
                 'token': access_token
             }

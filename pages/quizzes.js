@@ -27,7 +27,7 @@ const Quizzes = ({ quizzes }) => {
   )
 }
 export async function getServerSideProps(context) {
-  let data = await fetch('http://localhost:3000/api/getquiz');
+  let data = await fetch(`http://${window.location.host}/api/getquiz`);
   let quizzes_data = await data.json();
   
   return {

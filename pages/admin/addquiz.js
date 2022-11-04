@@ -15,9 +15,9 @@ const AddQuiz = () => {
     const data = { category, title, description }
     const access_token = localStorage.getItem('token');
     if (access_token == null) {
-      router.push('http://localhost:3000/login');
+      router.push(`http://${window.location.host}/login`);
     }
-    let res = await fetch('http://localhost:3000/api/addquiz', {
+    let res = await fetch(`http://${window.location.host}/api/addquiz`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const AddQuiz = () => {
         theme: "light",
       });
       setTimeout(() => {
-        router.push('http://localhost:3000/admin/addquestion')
+        router.push(`http://${window.location.host}/admin/addquestion`)
       }, 1000);
     }
     else {
