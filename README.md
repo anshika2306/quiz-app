@@ -6,10 +6,10 @@ Description:
 1. How to Run 
 
 > a. Install Dependencies
->> Install Nodejs and yarn
+ Install Nodejs and yarn
     npm install
     npm install --global yarn
->> MongoDb is attached via MongoDbAtlas
+ MongoDb is attached via MongoDbAtlas
 
 > b. Run 
     yarn dev
