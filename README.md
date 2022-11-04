@@ -39,13 +39,19 @@ Description:
 4. How to add quiz and questions
 > Only admin is allowed to do this
 ! Please note: category is mandatory and should be consistent in a quiz, all questions are retrieved on that basis.
+
 > To Add Quiz
+
 > Navigate to 
     http://localhost:3000/admin/addquiz
+    
 > This will add the quiz here:
     http://localhost:3000/quizzes
+    
 > To Add Question
+
 > Navigate to 
     http://localhost:3000/admin/addquestion
+    
 > This will add the question here:
     http://localhost:3000/quiz/<Category>
