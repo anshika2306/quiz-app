@@ -1,4 +1,4 @@
-Digiaccel Quiz-App | NextJs
+Quiz-App | NextJs
 
 Description:
 >This quiz app allows you to add quizzes based on category of the question and lets you add various questions of different difficulty.
@@ -12,7 +12,7 @@ Description:
  MongoDb is attached via MongoDbAtlas
 
 > b. Run 
-    yarn dev
+      ```yarn dev```
 
 2. Page Access
 > a. Add Quiz and Add Question functionality is only available to the admin.
