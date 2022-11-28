@@ -80,7 +80,7 @@ const Login = () => {
             pauseOnHover
             theme="light"
           />
-          <Image width={100} height={40} className="mx-auto h-12 w-auto" src="/digiaccel.svg" alt="Digiaccel logo" />
+          <Image width={100} height={40} className="mx-auto h-12 w-auto" src="/logo.png" alt="logo" />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Login to your account</h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or
