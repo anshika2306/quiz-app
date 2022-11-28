@@ -16,7 +16,7 @@ const Post = () => {
             }
         });
         results = await results.json()
-        console.log('hui', results)
+        
         setData(results);
     };
     useEffect(() => {
